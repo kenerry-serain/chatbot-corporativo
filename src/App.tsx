@@ -25,9 +25,12 @@ import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from '
 import { appConfig } from './config'
 import {
   completePasswordReset,
+  confirmUserSignUp,
   getSignedInUser,
   login,
   logout,
+  registerUser,
+  resendUserSignUpCode,
   requestPasswordReset,
   type AppUser,
 } from './services/auth'
@@ -67,23 +70,30 @@ function translateAuthError(error: unknown) {
   if (name === 'LimitExceededException') return 'Muitas tentativas. Aguarde alguns minutos e tente novamente.'
   if (name === 'CodeMismatchException') return 'O código informado não é válido.'
   if (name === 'ExpiredCodeException') return 'Esse código expirou. Solicite um novo código.'
-  if (name === 'InvalidPasswordException') return 'A nova senha não atende aos requisitos de segurança.'
+  if (name === 'InvalidPasswordException') return 'A senha deve ter no mínimo 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.'
+  if (name === 'UsernameExistsException') return 'Já existe uma conta cadastrada com esse e-mail.'
+  if (name === 'AliasExistsException') return 'Este e-mail já está associado a outra conta.'
+  if (name === 'InvalidParameterException') return 'Revise os dados informados e tente novamente.'
   return message || 'Não foi possível concluir a solicitação. Tente novamente.'
 }
 
+type AuthMode = 'login' | 'signup' | 'confirm-signup' | 'forgot' | 'confirm-reset'
+
 function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => void }) {
-  const [mode, setMode] = useState<'login' | 'forgot' | 'confirm'>('login')
+  const [mode, setMode] = useState<AuthMode>('login')
   const [showPassword, setShowPassword] = useState(false)
   const [remember, setRemember] = useState(true)
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [code, setCode] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
 
-  function changeMode(nextMode: 'login' | 'forgot' | 'confirm') {
+  function changeMode(nextMode: AuthMode) {
     setMode(nextMode)
     setError('')
     setNotice('')
@@ -101,6 +111,11 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
       const user = await login(email, password, remember)
       onAuthenticated(user)
     } catch (caughtError) {
+      if (caughtError instanceof Error && caughtError.name === 'UserNotConfirmedException') {
+        setNotice('Confirme sua conta com o código enviado pelo Cognito.')
+        setMode('confirm-signup')
+        return
+      }
       setError(translateAuthError(caughtError))
     } finally {
       setIsSubmitting(false)
@@ -118,7 +133,68 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
     try {
       await requestPasswordReset(email)
       setNotice(`Enviamos um código de verificação para ${email}.`)
-      setMode('confirm')
+      setMode('confirm-reset')
+    } catch (caughtError) {
+      setError(translateAuthError(caughtError))
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  async function handleSignUp(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setError('')
+    setNotice('')
+    if (!appConfig.cognito.isConfigured) {
+      setError('Configure o Cognito no arquivo .env para criar uma conta real.')
+      return
+    }
+    if (password !== confirmPassword) {
+      setError('As senhas informadas não são iguais.')
+      return
+    }
+    setIsSubmitting(true)
+    try {
+      const result = await registerUser(email, password, name)
+      setCode('')
+      if (result.isSignUpComplete) {
+        setNotice('Conta criada. Você já pode entrar.')
+        setMode('login')
+      } else {
+        setNotice(`Enviamos um código de confirmação para ${email}.`)
+        setMode('confirm-signup')
+      }
+    } catch (caughtError) {
+      setError(translateAuthError(caughtError))
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  async function handleConfirmSignUp(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setError('')
+    setIsSubmitting(true)
+    try {
+      const result = await confirmUserSignUp(email, code)
+      if (!result.isSignUpComplete) throw new Error('O Cognito ainda exige uma etapa adicional de confirmação.')
+      setCode('')
+      setConfirmPassword('')
+      setNotice('Conta confirmada. Entre com seu e-mail e senha.')
+      setMode('login')
+    } catch (caughtError) {
+      setError(translateAuthError(caughtError))
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  async function handleResendSignUpCode() {
+    setError('')
+    setIsSubmitting(true)
+    try {
+      await resendUserSignUpCode(email)
+      setNotice(`Enviamos um novo código para ${email}.`)
     } catch (caughtError) {
       setError(translateAuthError(caughtError))
     } finally {
@@ -196,7 +272,50 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
                   </button>
                 </>
               )}
+              <p className="auth-switch">Ainda não tem uma conta? <button type="button" onClick={() => changeMode('signup')}>Criar conta</button></p>
               <div className="secure-note"><LockKeyhole size={15} /> Seus dados estão protegidos</div>
+            </>
+          ) : mode === 'signup' ? (
+            <>
+              <button className="back-button" type="button" onClick={() => changeMode('login')}><ArrowLeft size={18} /> Voltar ao login</button>
+              <div className="reset-icon"><UserRound size={24} /></div>
+              <h1 className="reset-title">Crie sua conta.</h1>
+              <p className="intro">Cadastre-se para acessar o atendimento e manter suas conversas protegidas.</p>
+              <form onSubmit={handleSignUp}>
+                <label htmlFor="signup-name">Nome</label>
+                <div className="field"><input id="signup-name" type="text" value={name} onChange={(event) => setName(event.target.value)} autoComplete="name" placeholder="Seu nome" required /></div>
+                <label htmlFor="signup-email">E-mail</label>
+                <div className="field"><input id="signup-email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" placeholder="voce@exemplo.com" required /></div>
+                <label htmlFor="signup-password">Senha</label>
+                <div className="field password-field">
+                  <input id="signup-password" type={showPassword ? 'text' : 'password'} value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="new-password" placeholder="Mínimo de 8 caracteres" minLength={8} required />
+                  <button type="button" className="icon-button" onClick={() => setShowPassword((value) => !value)} aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}>{showPassword ? <EyeOff size={19} /> : <Eye size={19} />}</button>
+                </div>
+                <p className="password-requirements">Use 8 ou mais caracteres, com maiúscula, minúscula, número e caractere especial.</p>
+                <label htmlFor="signup-confirm-password">Confirmar senha</label>
+                <div className="field"><input id="signup-confirm-password" type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} autoComplete="new-password" placeholder="Repita sua senha" minLength={8} required /></div>
+                {error && <div className="form-feedback form-feedback--error" role="alert">{error}</div>}
+                <button className="primary-button" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? <LoaderCircle className="spin" size={20} /> : <>Criar conta <ArrowRight size={19} /></>}
+                </button>
+              </form>
+            </>
+          ) : mode === 'confirm-signup' ? (
+            <>
+              <button className="back-button" type="button" onClick={() => changeMode('signup')}><ArrowLeft size={18} /> Voltar ao cadastro</button>
+              <div className="reset-icon"><ShieldCheck size={24} /></div>
+              <h1 className="reset-title">Confirme sua conta.</h1>
+              <p className="intro">Digite o código enviado pelo Cognito para <strong>{email}</strong>.</p>
+              <form onSubmit={handleConfirmSignUp}>
+                {notice && <div className="form-feedback form-feedback--info" role="status">{notice}</div>}
+                <label htmlFor="signup-code">Código de confirmação</label>
+                <div className="field"><input id="signup-code" inputMode="numeric" value={code} onChange={(event) => setCode(event.target.value)} autoComplete="one-time-code" placeholder="000000" required /></div>
+                {error && <div className="form-feedback form-feedback--error" role="alert">{error}</div>}
+                <button className="primary-button" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? <LoaderCircle className="spin" size={20} /> : <>Confirmar conta <ArrowRight size={19} /></>}
+                </button>
+                <button className="resend-button" type="button" onClick={handleResendSignUpCode} disabled={isSubmitting}>Reenviar código</button>
+              </form>
             </>
           ) : (
             <>
@@ -224,6 +343,7 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
                   <div className="field"><input id="code" inputMode="numeric" value={code} onChange={(event) => setCode(event.target.value)} autoComplete="one-time-code" placeholder="000000" required /></div>
                   <label htmlFor="new-password">Nova senha</label>
                   <div className="field"><input id="new-password" type="password" value={newPassword} onChange={(event) => setNewPassword(event.target.value)} autoComplete="new-password" placeholder="Mínimo de 8 caracteres" minLength={8} required /></div>
+                  <p className="password-requirements">Use 8 ou mais caracteres, com maiúscula, minúscula, número e caractere especial.</p>
                   {error && <div className="form-feedback form-feedback--error" role="alert">{error}</div>}
                   <button className="primary-button" type="submit" disabled={isSubmitting}>
                     {isSubmitting ? <LoaderCircle className="spin" size={20} /> : <>Atualizar senha <ArrowRight size={19} /></>}

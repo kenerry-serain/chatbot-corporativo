@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">DETALHE IMPORTANTE</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">HTTP e WebSocket não são iguais</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">O navegador aceita Authorization no fetch, mas não permite cabeçalhos arbitrários no WebSocket.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">07</tspan></text>
+  <rect x="70" y="290" width="690" height="390" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="105" y="343" fill="#2563eb" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="start"><tspan x="105" dy="0">HTTP API</tspan></text>
+  <rect x="110" y="385" width="250" height="140" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="132" y="407" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="162" y="442" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="middle"><tspan x="162" dy="0">&lt;/&gt;</tspan></text>
+  <text x="210" y="432" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="210" dy="0">fetch()</tspan></text>
+  <text x="210" y="469" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="210" dy="0">Authorization:</tspan><tspan x="210" dy="22.5">Bearer &lt;access_token&gt;</tspan></text>
+  <rect x="470" y="385" width="250" height="140" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="492" y="407" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <polygon points="522,416 539,437 522,458 505,437" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="522" y="447" fill="#2563eb" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="middle"><tspan x="522" dy="0">✓</tspan></text>
+  <text x="570" y="432" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="570" dy="0">JWT authorizer</tspan></text>
+  <text x="570" y="469" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="570" dy="0">Validação nativa</tspan><tspan x="570" dy="22.5">por rota</tspan></text>
+  <line x1="360" y1="455" x2="460" y2="455" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <text x="105" y="616" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="105" dy="0">Recomendado para endpoints REST/HTTP do chatbot.</tspan></text>
+  <rect x="840" y="290" width="690" height="390" rx="0" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="875" y="342" fill="#38bdf8" font-family="'Courier New', monospace" font-size="22" font-weight="500" text-anchor="start"><tspan x="875" dy="0">WEBSOCKET API — ESTADO ATUAL</tspan></text>
+  <rect x="880" y="385" width="250" height="140" rx="0" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="902" y="407" width="60" height="60" rx="0" fill="#0b0f19" stroke="#38bdf8" stroke-width="2" opacity="1" />
+  <text x="932" y="442" fill="#38bdf8" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="middle"><tspan x="932" dy="0">&lt;/&gt;</tspan></text>
+  <text x="980" y="432" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="980" dy="0">new WebSocket()</tspan></text>
+  <text x="980" y="469" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="980" dy="0">token na query do</tspan><tspan x="980" dy="22.5">handshake $connect</tspan></text>
+  <rect x="1240" y="385" width="250" height="140" rx="0" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="1262" y="407" width="60" height="60" rx="0" fill="#0b0f19" stroke="#38bdf8" stroke-width="2" opacity="1" />
+  <polygon points="1292,416 1309,437 1292,458 1275,437" fill="none" stroke="#38bdf8" stroke-width="2" opacity="1"/>
+  <text x="1292" y="447" fill="#38bdf8" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="middle"><tspan x="1292" dy="0">✓</tspan></text>
+  <text x="1340" y="432" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="1340" dy="0">$connect</tspan></text>
+  <text x="1340" y="469" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="1340" dy="0">Lambda authorizer</tspan><tspan x="1340" dy="22.5">valida o JWT</tspan></text>
+  <line x1="1130" y1="455" x2="1230" y2="455" stroke="#38bdf8" stroke-width="3" opacity="1"  marker-end="url(#arrow-cyan)"/>
+  <text x="875" y="616" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="875" dy="0">Use WSS e token curto. Evite registrar a URL com o token.</tspan></text>
+  <rect x="250" y="740" width="1100" height="74" rx="0" fill="#2563eb" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="800" y="783" fill="#ffffff" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="800" dy="0">No AutoAtende: VITE_WEBSOCKET_AUTH_QUERY_PARAM=token</tspan></text>
+</svg>

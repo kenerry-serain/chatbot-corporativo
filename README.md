@@ -1,6 +1,6 @@
 # AutoAtende Chat
 
-SPA em React + TypeScript para atendimento de clientes de uma loja de veículos. O projeto já inclui tela de login, recuperação de senha pelo Amazon Cognito, interface de chat responsiva, adaptador WebSocket com reconexão e uma rotina de publicação em S3/CloudFront.
+SPA em React + TypeScript para atendimento de clientes de uma loja de veículos. O projeto já inclui cadastro, confirmação de conta, login e recuperação de senha pelo Amazon Cognito, interface de chat responsiva, adaptador WebSocket com reconexão e uma rotina de publicação em S3/CloudFront.
 
 ## Executar localmente
 
@@ -26,16 +26,17 @@ As variáveis ficam em `.env`. Use `.env.example` como referência.
 | `VITE_COGNITO_USER_POOL_CLIENT_ID` | App Client público, sem client secret |
 | `VITE_WEBSOCKET_URL` | Endpoint `wss://` do backend |
 | `VITE_WEBSOCKET_ACTION` | Ação enviada no payload; padrão `sendMessage` |
-| `VITE_WEBSOCKET_AUTH_QUERY_PARAM` | Nome do parâmetro usado para enviar o ID token; padrão `token` |
+| `VITE_WEBSOCKET_TOKEN_QUERY_PARAM` | Nome do parâmetro usado para enviar o access token; padrão `token` |
 | `VITE_ENABLE_DEMO_MODE` | Exibe ou oculta o acesso de demonstração |
 
-Variáveis Vite são públicas no bundle do navegador. Não coloque client secrets, chaves privadas ou credenciais AWS nelas. O App Client do Cognito deve ser criado **sem client secret**.
+Variáveis Vite são públicas no bundle do navegador. Não coloque tokens, client secrets, chaves privadas ou credenciais AWS nelas. O App Client do Cognito deve ser criado **sem client secret**. O token do WebSocket é obtido em tempo de execução pela sessão autenticada do Cognito.
 
 ## Contrato WebSocket atual
 
 Como o backend ainda será criado, a integração está isolada em `src/hooks/useChatSocket.ts`. Hoje o frontend:
 
-- abre `VITE_WEBSOCKET_URL` com o ID token do Cognito no parâmetro configurado;
+- recupera um access token atualizado com `fetchAuthSession()` depois da autenticação;
+- abre `VITE_WEBSOCKET_URL` e envia esse token no parâmetro nomeado por `VITE_WEBSOCKET_TOKEN_QUERY_PARAM`;
 - adiciona `conversationId` à URL;
 - envia mensagens no formato abaixo;
 - aceita respostas em texto puro ou JSON com `content`, `message` ou `text`.
@@ -73,7 +74,7 @@ No CloudFront, use o bucket privado como origem com Origin Access Control (OAC).
 ```text
 src/
   hooks/useChatSocket.ts  # conexão, autenticação e reconexão WebSocket
-  services/auth.ts        # login, sessão e recuperação de senha Cognito
+  services/auth.ts        # cadastro, confirmação, login, sessão e recuperação Cognito
   App.tsx                 # telas e fluxo da aplicação
   config.ts               # leitura das variáveis e configuração do Amplify
   styles.css              # identidade visual e responsividade

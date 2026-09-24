@@ -7,7 +7,7 @@ interface ImportMetaEnv {
   readonly VITE_COGNITO_USER_POOL_CLIENT_ID?: string
   readonly VITE_WEBSOCKET_URL?: string
   readonly VITE_WEBSOCKET_ACTION?: string
-  readonly VITE_WEBSOCKET_AUTH_QUERY_PARAM?: string
+  readonly VITE_WEBSOCKET_TOKEN_QUERY_PARAM?: string
   readonly VITE_ENABLE_DEMO_MODE?: string
 }
 

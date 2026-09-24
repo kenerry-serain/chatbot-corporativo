@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">FEDERAÇÃO</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Login local e identidade externa</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">O User Pool pode aceitar usuários próprios e também atuar como ponte para outros provedores.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">08</tspan></text>
+  <rect x="70" y="320" width="285" height="170" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="92" y="342" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="122" cy="361" rx="9" ry="9" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <line x1="106" y1="391" x2="138" y2="391" stroke="#2563eb" stroke-width="2" opacity="1"  />
+  <line x1="106" y1="391" x2="112" y2="375" stroke="#2563eb" stroke-width="2" opacity="1"  />
+  <line x1="138" y1="391" x2="132" y2="375" stroke="#2563eb" stroke-width="2" opacity="1"  />
+  <text x="170" y="367" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="170" dy="0">Login local</tspan></text>
+  <text x="170" y="404" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="170" dy="0">E-mail + senha</tspan><tspan x="170" dy="22.5">no User Pool</tspan></text>
+  <rect x="70" y="555" width="285" height="170" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="92" y="577" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="122" y="619" fill="#2563eb" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="500" text-anchor="middle"><tspan x="122" dy="0">G</tspan></text>
+  <text x="170" y="602" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="170" dy="0">Google / social</tspan></text>
+  <text x="170" y="639" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="170" dy="0">Google, Apple,</tspan><tspan x="170" dy="22.5">Facebook, Amazon</tspan></text>
+  <rect x="455" y="438" width="300" height="190" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="477" y="460" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="507" cy="476.5" rx="19" ry="7.5" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <rect x="488" y="476" width="38" height="30" rx="0" fill="none" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="507" cy="506.5" rx="19" ry="7.5" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="555" y="487" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="500" text-anchor="start"><tspan x="555" dy="0">Cognito User Pool</tspan></text>
+  <text x="555" y="524" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="start"><tspan x="555" dy="0">Mapeia claims</tspan><tspan x="555" dy="25">e cria/associa o perfil</tspan></text>
+  <rect x="855" y="438" width="300" height="190" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="877" y="460" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="898" cy="487" rx="11" ry="11" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <line x1="908" y1="487" x2="927" y2="487" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <line x1="920" y1="487" x2="920" y2="498" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <text x="955" y="487" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="500" text-anchor="start"><tspan x="955" dy="0">Tokens Cognito</tspan></text>
+  <text x="955" y="524" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="start"><tspan x="955" dy="0">Mesmo formato de JWT</tspan><tspan x="955" dy="25">para todos os logins</tspan></text>
+  <rect x="1255" y="438" width="275" height="190" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="1277" y="460" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="1307" y="495" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="middle"><tspan x="1307" dy="0">&lt;/&gt;</tspan></text>
+  <text x="1355" y="487" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="500" text-anchor="start"><tspan x="1355" dy="0">AutoAtende</tspan></text>
+  <text x="1355" y="523" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" text-anchor="start"><tspan x="1355" dy="0">Frontend e backend</tspan><tspan x="1355" dy="23.75">consomem uma identidade</tspan></text>
+  <line x1="355" y1="405" x2="445" y2="505" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="355" y1="640" x2="445" y2="560" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="755" y1="535" x2="845" y2="535" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="1155" y1="535" x2="1245" y2="535" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <rect x="475" y="710" width="130" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="540" y="734" fill="#0f2f70" font-family="'Courier New', monospace" font-size="16" font-weight="500" text-anchor="middle"><tspan x="540" dy="0">OIDC</tspan></text>
+  <rect x="620" y="710" width="160" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="700" y="734" fill="#0f2f70" font-family="'Courier New', monospace" font-size="16" font-weight="500" text-anchor="middle"><tspan x="700" dy="0">SAML 2.0</tspan></text>
+  <rect x="795" y="710" width="150" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="870" y="734" fill="#0f2f70" font-family="'Courier New', monospace" font-size="16" font-weight="500" text-anchor="middle"><tspan x="870" dy="0">SOCIAL</tspan></text>
+  <text x="980" y="731" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="start"><tspan x="980" dy="0">Microsoft Entra ID costuma entrar via OIDC ou SAML.</tspan></text>
+</svg>

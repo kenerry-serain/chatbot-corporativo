@@ -1,4 +1,14 @@
-import { confirmResetPassword, fetchAuthSession, getCurrentUser, resetPassword, signIn, signOut } from 'aws-amplify/auth'
+import {
+  confirmResetPassword,
+  confirmSignUp,
+  fetchAuthSession,
+  getCurrentUser,
+  resendSignUpCode,
+  resetPassword,
+  signIn,
+  signOut,
+  signUp,
+} from 'aws-amplify/auth'
 import { appConfig } from '../config'
 
 export interface AppUser {
@@ -65,8 +75,32 @@ export async function completePasswordReset(email: string, code: string, newPass
   await confirmResetPassword({ username: email.trim(), confirmationCode: code.trim(), newPassword })
 }
 
-export async function getIdToken() {
+export async function registerUser(email: string, password: string, name?: string) {
+  const normalizedEmail = email.trim().toLocaleLowerCase()
+  const result = await signUp({
+    username: normalizedEmail,
+    password,
+    options: {
+      userAttributes: {
+        email: normalizedEmail,
+        ...(name?.trim() ? { name: name.trim() } : {}),
+      },
+    },
+  })
+  return { isSignUpComplete: result.isSignUpComplete }
+}
+
+export async function confirmUserSignUp(email: string, code: string) {
+  const result = await confirmSignUp({ username: email.trim().toLocaleLowerCase(), confirmationCode: code.trim() })
+  return { isSignUpComplete: result.isSignUpComplete }
+}
+
+export async function resendUserSignUpCode(email: string) {
+  await resendSignUpCode({ username: email.trim().toLocaleLowerCase() })
+}
+
+export async function getAccessToken() {
   if (!appConfig.cognito.isConfigured) return null
   const session = await fetchAuthSession()
-  return session.tokens?.idToken?.toString() || null
+  return session.tokens?.accessToken?.toString() || null
 }

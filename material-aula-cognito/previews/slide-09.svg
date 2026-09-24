@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">CONFIGURAÇÃO</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Políticas e clientes separados</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">A política de senha pertence ao User Pool; cada aplicação pode ter seu próprio App Client.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">09</tspan></text>
+  <rect x="70" y="290" width="660" height="425" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="105" y="340" fill="#2563eb" font-family="'Courier New', monospace" font-size="20" font-weight="500" text-anchor="start"><tspan x="105" dy="0">USER POOL — POLÍTICA GLOBAL</tspan></text>
+  <ellipse cx="125" cy="400" rx="15" ry="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="125" y="406" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="middle"><tspan x="125" dy="0">✓</tspan></text>
+  <text x="156" y="405" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="156" dy="0">Comprimento mínimo de senha</tspan></text>
+  <ellipse cx="125" cy="463" rx="15" ry="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="125" y="469" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="middle"><tspan x="125" dy="0">✓</tspan></text>
+  <text x="156" y="468" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="156" dy="0">Maiúsculas, minúsculas, números e símbolos</tspan></text>
+  <ellipse cx="125" cy="526" rx="15" ry="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="125" y="532" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="middle"><tspan x="125" dy="0">✓</tspan></text>
+  <text x="156" y="531" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="156" dy="0">MFA e recuperação de conta</tspan></text>
+  <ellipse cx="125" cy="589" rx="15" ry="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="125" y="595" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="middle"><tspan x="125" dy="0">✓</tspan></text>
+  <text x="156" y="594" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="156" dy="0">Auto cadastro ou criação administrativa</tspan></text>
+  <ellipse cx="125" cy="652" rx="15" ry="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="125" y="658" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="middle"><tspan x="125" dy="0">✓</tspan></text>
+  <text x="156" y="657" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="156" dy="0">Atributos, grupos e triggers Lambda</tspan></text>
+  <rect x="790" y="290" width="730" height="425" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="825" y="340" fill="#2563eb" font-family="'Courier New', monospace" font-size="20" font-weight="500" text-anchor="start"><tspan x="825" dy="0">UM APP CLIENT POR CONTEXTO</tspan></text>
+  <rect x="830" y="380" width="200" height="135" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="852" y="402" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="882" y="437" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="middle"><tspan x="882" dy="0">&lt;/&gt;</tspan></text>
+  <text x="930" y="425" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="500" text-anchor="start"><tspan x="930" dy="0">SPA web</tspan></text>
+  <text x="930" y="464" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="930" dy="0">Público</tspan><tspan x="930" dy="22.5">sem secret</tspan></text>
+  <rect x="1055" y="380" width="200" height="135" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="1077" y="402" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="1107" y="437" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="middle"><tspan x="1107" dy="0">&lt;/&gt;</tspan></text>
+  <text x="1155" y="425" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="500" text-anchor="start"><tspan x="1155" dy="0">Mobile</tspan></text>
+  <text x="1155" y="463" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="500" text-anchor="start"><tspan x="1155" dy="0">Público</tspan><tspan x="1155" dy="21.25">callbacks</tspan><tspan x="1155" dy="21.25">próprios</tspan></text>
+  <rect x="1280" y="380" width="200" height="135" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="1302" y="402" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="1323" cy="429" rx="11" ry="11" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <line x1="1333" y1="429" x2="1352" y2="429" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <line x1="1345" y1="429" x2="1345" y2="440" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <text x="1380" y="424" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="start"><tspan x="1380" dy="0">Backend</tspan></text>
+  <text x="1380" y="463" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="500" text-anchor="start"><tspan x="1380" dy="0">Confidencial</tspan><tspan x="1380" dy="21.25">com secret</tspan></text>
+  <text x="830" y="592" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="start"><tspan x="830" dy="0">Cada client pode variar:</tspan></text>
+  <text x="830" y="635" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="start"><tspan x="830" dy="0">fluxos • IdPs • callbacks • scopes • validade e revogação de tokens</tspan></text>
+  <rect x="250" y="760" width="1100" height="65" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="800" y="800" fill="#38bdf8" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="middle"><tspan x="800" dy="0">Nunca coloque client secret em React, JavaScript ou aplicativo móvel.</tspan></text>
+</svg>

@@ -18,7 +18,8 @@ export const appConfig = {
     isConfigured: /^wss?:\/\//.test(websocketUrl),
     url: websocketUrl,
     action: import.meta.env.VITE_WEBSOCKET_ACTION?.trim() || 'sendMessage',
-    authQueryParam: import.meta.env.VITE_WEBSOCKET_AUTH_QUERY_PARAM?.trim() || 'token',
+    // This is only the query-string key. The value always comes from the Cognito session.
+    tokenQueryParam: import.meta.env.VITE_WEBSOCKET_TOKEN_QUERY_PARAM?.trim() || 'token',
   },
 } as const
 

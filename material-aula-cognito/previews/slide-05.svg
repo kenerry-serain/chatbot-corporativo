@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">JWT</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">ID token, access token e refresh token</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Os três têm papéis diferentes. Para autorizar APIs, prefira o access token.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">05</tspan></text>
+  <rect x="70" y="300" width="455" height="320" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="92" y="322" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="122" cy="341" rx="9" ry="9" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <line x1="106" y1="371" x2="138" y2="371" stroke="#2563eb" stroke-width="2" opacity="1"  />
+  <line x1="106" y1="371" x2="112" y2="355" stroke="#2563eb" stroke-width="2" opacity="1"  />
+  <line x1="138" y1="371" x2="132" y2="355" stroke="#2563eb" stroke-width="2" opacity="1"  />
+  <text x="170" y="353" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500" text-anchor="start"><tspan x="170" dy="0">ID token</tspan></text>
+  <text x="170" y="387" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="170" dy="0">Identidade do usuário</tspan><tspan x="170" dy="26.25">• sub, email, name</tspan><tspan x="170" dy="26.25">• grupos e atributos</tspan><tspan x="170" dy="26.25">• usado pela interface</tspan><tspan x="170" dy="26.25"></tspan><tspan x="170" dy="26.25">Não é a escolha preferida</tspan><tspan x="170" dy="26.25">para autorização de API.</tspan></text>
+  <rect x="575" y="300" width="455" height="320" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="597" y="322" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <polygon points="627,331 644,352 627,373 610,352" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="627" y="362" fill="#2563eb" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="middle"><tspan x="627" dy="0">✓</tspan></text>
+  <text x="675" y="353" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500" text-anchor="start"><tspan x="675" dy="0">Access token</tspan></text>
+  <text x="675" y="387" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="675" dy="0">Autorização da API</tspan><tspan x="675" dy="26.25">• client_id</tspan><tspan x="675" dy="26.25">• scope</tspan><tspan x="675" dy="26.25">• username / groups</tspan><tspan x="675" dy="26.25">• expiração</tspan><tspan x="675" dy="26.25"></tspan><tspan x="675" dy="26.25">Enviar como Bearer token.</tspan></text>
+  <rect x="1080" y="300" width="440" height="320" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="1102" y="322" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="1123" cy="349" rx="11" ry="11" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <line x1="1133" y1="349" x2="1152" y2="349" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <line x1="1145" y1="349" x2="1145" y2="360" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <text x="1180" y="353" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500" text-anchor="start"><tspan x="1180" dy="0">Refresh token</tspan></text>
+  <text x="1180" y="387" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="1180" dy="0">Renova a sessão sem</tspan><tspan x="1180" dy="26.25">pedir a senha novamente.</tspan><tspan x="1180" dy="26.25"></tspan><tspan x="1180" dy="26.25">É opaco para a aplicação</tspan><tspan x="1180" dy="26.25">e não deve ser enviado</tspan><tspan x="1180" dy="26.25">para a API de negócio.</tspan></text>
+  <rect x="165" y="700" width="1270" height="92" rx="0" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="200" y="743" fill="#38bdf8" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="start"><tspan x="200" dy="0">HTTP REQUEST</tspan></text>
+  <text x="405" y="746" fill="#ffffff" font-family="'Courier New', monospace" font-size="27" font-weight="500" text-anchor="start"><tspan x="405" dy="0">Authorization: Bearer &lt;access_token&gt;</tspan></text>
+  <text x="1090" y="746" fill="#38bdf8" font-family="'Courier New', monospace" font-size="22" font-weight="500" text-anchor="start"><tspan x="1090" dy="0">HTTPS sempre</tspan></text>
+</svg>

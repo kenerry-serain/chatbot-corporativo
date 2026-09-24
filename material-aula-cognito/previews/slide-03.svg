@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">CONFIGURAÇÃO REAL</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Como o frontend está configurado</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">O AutoAtende usa aws-amplify v6 e lê a configuração do ambiente no carregamento.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">03</tspan></text>
+  <rect x="70" y="285" width="660" height="430" rx="0" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="105" y="335" fill="#38bdf8" font-family="'Courier New', monospace" font-size="20" font-weight="500" text-anchor="start"><tspan x="105" dy="0">.env</tspan></text>
+  <text x="105" y="388" fill="#ffffff" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="start"><tspan x="105" dy="0">VITE_AWS_REGION=us-east-1</tspan><tspan x="105" dy="28.75"></tspan><tspan x="105" dy="28.75">VITE_COGNITO_USER_POOL_ID=</tspan><tspan x="105" dy="28.75">us-east-1_EXEMPLO</tspan><tspan x="105" dy="28.75"></tspan><tspan x="105" dy="28.75">VITE_COGNITO_USER_POOL_CLIENT_ID=</tspan><tspan x="105" dy="28.75">seu_app_client_id</tspan></text>
+  <rect x="790" y="285" width="730" height="430" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="825" y="335" fill="#2563eb" font-family="'Courier New', monospace" font-size="20" font-weight="500" text-anchor="start"><tspan x="825" dy="0">src/config.ts</tspan></text>
+  <text x="825" y="383" fill="#0b0f19" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="start"><tspan x="825" dy="0">Amplify.configure({</tspan><tspan x="825" dy="28.75">  Auth: { Cognito: {</tspan><tspan x="825" dy="28.75">    userPoolId,</tspan><tspan x="825" dy="28.75">    userPoolClientId,</tspan><tspan x="825" dy="28.75">    loginWith: { email: true }</tspan><tspan x="825" dy="28.75">  }}</tspan><tspan x="825" dy="28.75">})</tspan></text>
+  <line x1="730" y1="500" x2="780" y2="500" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <rect x="275" y="758" width="210" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="380" y="782" fill="#0f2f70" font-family="'Courier New', monospace" font-size="16" font-weight="500" text-anchor="middle"><tspan x="380" dy="0">USER POOL ID</tspan></text>
+  <rect x="515" y="758" width="220" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="625" y="782" fill="#0f2f70" font-family="'Courier New', monospace" font-size="16" font-weight="500" text-anchor="middle"><tspan x="625" dy="0">APP CLIENT ID</tspan></text>
+  <rect x="765" y="758" width="260" height="40" rx="0" fill="#2563eb" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="895" y="782" fill="#ffffff" font-family="'Courier New', monospace" font-size="16" font-weight="500" text-anchor="middle"><tspan x="895" dy="0">SEM CLIENT SECRET</tspan></text>
+  <text x="1070" y="776" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" text-anchor="start"><tspan x="1070" dy="0">O navegador não consegue guardar segredo.</tspan></text>
+</svg>

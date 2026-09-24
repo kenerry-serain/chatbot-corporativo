@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">PRÓXIMO PASSO</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Laboratório mínimo para a aula</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Um backend mock permite validar autenticação e autorização antes da regra de negócio real.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">10</tspan></text>
+  <ellipse cx="91" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="91" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="91" dy="0">1</tspan></text>
+  <text x="135" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="135" dy="0">User Pool</tspan></text>
+  <text x="135" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="135" dy="0">Criar usuários e</tspan><tspan x="135" dy="22.5">política de senha</tspan></text>
+  <ellipse cx="386" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="386" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="386" dy="0">2</tspan></text>
+  <text x="430" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="430" dy="0">App Client SPA</tspan></text>
+  <text x="430" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="430" dy="0">Público, sem secret;</tspan><tspan x="430" dy="22.5">login por e-mail</tspan></text>
+  <ellipse cx="716" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="716" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="716" dy="0">3</tspan></text>
+  <text x="760" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="760" dy="0">Frontend</tspan></text>
+  <text x="760" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="760" dy="0">Preencher .env e</tspan><tspan x="760" dy="22.5">testar Amplify Auth</tspan></text>
+  <ellipse cx="1046" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="1046" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="1046" dy="0">4</tspan></text>
+  <text x="1090" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="1090" dy="0">HTTP API</tspan></text>
+  <text x="1090" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="1090" dy="0">JWT authorizer com</tspan><tspan x="1090" dy="22.5">issuer + audience</tspan></text>
+  <ellipse cx="1356" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="1356" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="1356" dy="0">5</tspan></text>
+  <text x="1400" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="1400" dy="0">Lambda mock</tspan></text>
+  <text x="1400" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="1400" dy="0">200 + claims</tspan><tspan x="1400" dy="22.5">recebidos</tspan></text>
+  <line x1="300" y1="332" x2="345" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="630" y1="332" x2="675" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="960" y1="332" x2="1005" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="1270" y1="332" x2="1315" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <rect x="115" y="545" width="1370" height="195" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="150" y="595" fill="#2563eb" font-family="'Courier New', monospace" font-size="20" font-weight="500" text-anchor="start"><tspan x="150" dy="0">TESTES DA AULA</tspan></text>
+  <text x="150" y="652" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="start"><tspan x="150" dy="0">1. Sem Authorization</tspan></text>
+  <text x="480" y="652" fill="#dc2626" font-family="'Courier New', monospace" font-size="22" font-weight="500" text-anchor="start"><tspan x="480" dy="0">→ 401</tspan></text>
+  <text x="650" y="652" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="start"><tspan x="650" dy="0">2. Token válido</tspan></text>
+  <text x="930" y="652" fill="#2563eb" font-family="'Courier New', monospace" font-size="22" font-weight="500" text-anchor="start"><tspan x="930" dy="0">→ 200 + claims</tspan></text>
+  <text x="150" y="702" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="start"><tspan x="150" dy="0">3. Token válido sem scope</tspan></text>
+  <text x="510" y="702" fill="#dc2626" font-family="'Courier New', monospace" font-size="22" font-weight="500" text-anchor="start"><tspan x="510" dy="0">→ 403</tspan></text>
+  <text x="650" y="702" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500" text-anchor="start"><tspan x="650" dy="0">4. Token expirado/adulterado</tspan></text>
+  <text x="1040" y="702" fill="#dc2626" font-family="'Courier New', monospace" font-size="22" font-weight="500" text-anchor="start"><tspan x="1040" dy="0">→ 401</tspan></text>
+  <text x="800" y="814" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="middle"><tspan x="800" dy="0">Depois, troque apenas a Lambda mock pelo backend real do chatbot.</tspan></text>
+</svg>

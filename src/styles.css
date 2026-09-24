@@ -38,6 +38,7 @@ form > label { display: block; margin: 0 0 9px; color: #26354b; font-size: .88re
 .field input { width: 100%; height: 100%; padding: 0 16px; border: 0; outline: 0; border-radius: inherit; color: #101928; background: transparent; font-size: .95rem; }
 .field input::placeholder { color: #9aa4b3; }
 .password-field input { padding-right: 8px; }
+.password-requirements { margin: -12px 0 20px; color: #657083; font-size: .77rem; line-height: 1.45; }
 .icon-button { width: 46px; height: 46px; display: grid; place-items: center; flex: 0 0 auto; border: 0; color: #6d7889; background: transparent; }
 .form-options { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: -2px 0 28px; font-size: .86rem; }
 .check-label { display: flex; align-items: center; gap: 9px; color: #4e5a6c; cursor: pointer; }
@@ -46,6 +47,11 @@ form > label { display: block; margin: 0 0 9px; color: #26354b; font-size: .88re
 .check-label input:checked + .checkbox { border-color: #1e6ff1; background: #1e6ff1; }
 .check-label input:focus-visible + .checkbox { outline: 3px solid rgba(30,111,241,.22); }
 .text-button { padding: 2px; border: 0; background: transparent; color: #1d6df2; font-size: .86rem; font-weight: 700; }
+.auth-switch { margin: 22px 0 0; color: #657083; font-size: .86rem; text-align: center; }
+.auth-switch button, .resend-button { border: 0; background: transparent; color: #1d6df2; font-weight: 700; }
+.auth-switch button { padding: 2px 4px; }
+.resend-button { width: 100%; margin-top: 15px; padding: 10px; }
+.resend-button:disabled { cursor: not-allowed; opacity: .58; }
 .primary-button { width: 100%; height: 56px; display: flex; justify-content: center; align-items: center; gap: 10px; border: 0; border-radius: 12px; background: #1465ee; color: #fff; font-weight: 700; box-shadow: 0 12px 28px rgba(20,101,238,.23); transition: transform .2s, background .2s, box-shadow .2s; }
 .primary-button:hover { background: #0759e2; transform: translateY(-1px); box-shadow: 0 16px 34px rgba(20,101,238,.3); }
 .primary-button:active { transform: translateY(0); }

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">AUTENTICAÇÃO</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Login passo a passo</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Amplify abstrai as chamadas, mas o User Pool continua sendo a autoridade de autenticação.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">04</tspan></text>
+  <ellipse cx="101" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="101" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="101" dy="0">1</tspan></text>
+  <text x="145" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="145" dy="0">Usuário informa</tspan></text>
+  <text x="145" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="145" dy="0">e-mail e senha</tspan><tspan x="145" dy="22.5">na SPA React</tspan></text>
+  <ellipse cx="426" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="426" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="426" dy="0">2</tspan></text>
+  <text x="470" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="470" dy="0">Amplify Auth</tspan></text>
+  <text x="470" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="470" dy="0">signIn({ username,</tspan><tspan x="470" dy="22.5">password })</tspan></text>
+  <ellipse cx="781" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="781" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="781" dy="0">3</tspan></text>
+  <text x="825" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="825" dy="0">Cognito valida</tspan></text>
+  <text x="825" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="825" dy="0">usuário, senha, status</tspan><tspan x="825" dy="22.5">e desafios/MFA</tspan></text>
+  <ellipse cx="1151" cy="331" rx="26" ry="26" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="1151" y="336" fill="#38bdf8" font-family="'Courier New', monospace" font-size="23" font-weight="500" text-anchor="middle"><tspan x="1151" dy="0">4</tspan></text>
+  <text x="1195" y="327" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" text-anchor="start"><tspan x="1195" dy="0">Sessão criada</tspan></text>
+  <text x="1195" y="357" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="500" text-anchor="start"><tspan x="1195" dy="0">ID token + access token</tspan><tspan x="1195" dy="22.5">+ refresh token</tspan></text>
+  <line x1="330" y1="332" x2="385" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="685" y1="332" x2="740" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <line x1="1055" y1="332" x2="1110" y2="332" stroke="#2563eb" stroke-width="3" opacity="1"  marker-end="url(#arrow-blue)"/>
+  <rect x="150" y="530" width="1300" height="190" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="185" y="580" fill="#2563eb" font-family="'Courier New', monospace" font-size="20" font-weight="500" text-anchor="start"><tspan x="185" dy="0">No código atual</tspan></text>
+  <text x="185" y="632" fill="#0b0f19" font-family="'Courier New', monospace" font-size="27" font-weight="500" text-anchor="start"><tspan x="185" dy="0">signIn()</tspan></text>
+  <text x="415" y="633" fill="#2563eb" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="500" text-anchor="middle"><tspan x="415" dy="0">→</tspan></text>
+  <text x="485" y="632" fill="#0b0f19" font-family="'Courier New', monospace" font-size="27" font-weight="500" text-anchor="start"><tspan x="485" dy="0">getCurrentUser()</tspan></text>
+  <text x="790" y="633" fill="#2563eb" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="500" text-anchor="middle"><tspan x="790" dy="0">+</tspan></text>
+  <text x="835" y="632" fill="#0b0f19" font-family="'Courier New', monospace" font-size="27" font-weight="500" text-anchor="start"><tspan x="835" dy="0">fetchAuthSession()</tspan></text>
+  <text x="1160" y="630" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="500" text-anchor="start"><tspan x="1160" dy="0">→ usuário logado</tspan></text>
+  <text x="185" y="689" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="185" dy="0">Recuperação de senha: resetPassword() → código → confirmResetPassword().</tspan></text>
+</svg>

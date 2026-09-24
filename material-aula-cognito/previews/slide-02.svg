@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="0" y="0" width="1600" height="900" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" />
+  <rect x="0" y="0" width="1600" height="220" rx="0" fill="#0b0f19" stroke="#0b0f19" stroke-width="2" opacity="1" />
+  <text x="70" y="57" fill="#38bdf8" font-family="'Courier New', monospace" font-size="17" font-weight="500" text-anchor="start"><tspan x="70" dy="0">FUNDAMENTOS</tspan></text>
+  <line x1="70" y1="76" x2="138" y2="76" stroke="#2563eb" stroke-width="5" opacity="1"  />
+  <text x="70" y="139" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="500" text-anchor="start"><tspan x="70" dy="0">As peças do Cognito</tspan></text>
+  <text x="70" y="181" fill="#dbeafe" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="70" dy="0">Para o chatbot, o User Pool autentica pessoas; o Identity Pool é opcional.</tspan></text>
+  <text x="1530" y="858" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="end"><tspan x="1530" dy="0">02</tspan></text>
+  <rect x="70" y="290" width="455" height="365" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="92" y="312" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="122" cy="328.5" rx="19" ry="7.5" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <rect x="103" y="328" width="38" height="30" rx="0" fill="none" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="122" cy="358.5" rx="19" ry="7.5" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <text x="170" y="343" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500" text-anchor="start"><tspan x="170" dy="0">User Pool</tspan></text>
+  <text x="170" y="377" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="170" dy="0">Diretório de usuários</tspan><tspan x="170" dy="26.25">• cadastro e login</tspan><tspan x="170" dy="26.25">• MFA e recuperação</tspan><tspan x="170" dy="26.25">• grupos e atributos</tspan><tspan x="170" dy="26.25">• emite ID, access e refresh token</tspan></text>
+  <rect x="575" y="290" width="455" height="365" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="597" y="312" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="627" y="347" fill="#2563eb" font-family="'Courier New', monospace" font-size="18" font-weight="500" text-anchor="middle"><tspan x="627" dy="0">&lt;/&gt;</tspan></text>
+  <text x="675" y="343" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500" text-anchor="start"><tspan x="675" dy="0">App Client</tspan></text>
+  <text x="675" y="377" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="675" dy="0">Configuração por aplicação</tspan><tspan x="675" dy="26.25">• client ID</tspan><tspan x="675" dy="26.25">• fluxos de autenticação</tspan><tspan x="675" dy="26.25">• callbacks e logout</tspan><tspan x="675" dy="26.25">• scopes e validade de tokens</tspan><tspan x="675" dy="26.25">• SPA pública: sem secret</tspan></text>
+  <rect x="1080" y="290" width="440" height="365" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <rect x="1102" y="312" width="60" height="60" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <ellipse cx="1123" cy="339" rx="11" ry="11" fill="none" stroke="#2563eb" stroke-width="2" opacity="1"/>
+  <line x1="1133" y1="339" x2="1152" y2="339" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <line x1="1145" y1="339" x2="1145" y2="350" stroke="#2563eb" stroke-width="3" opacity="1"  />
+  <text x="1180" y="343" fill="#0b0f19" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500" text-anchor="start"><tspan x="1180" dy="0">Identity Pool</tspan></text>
+  <text x="1180" y="377" fill="#0f2f70" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" text-anchor="start"><tspan x="1180" dy="0">Troca identidades por</tspan><tspan x="1180" dy="26.25">credenciais AWS temporárias.</tspan><tspan x="1180" dy="26.25"></tspan><tspan x="1180" dy="26.25">Útil para acessar S3 ou outros</tspan><tspan x="1180" dy="26.25">serviços AWS diretamente.</tspan><tspan x="1180" dy="26.25">Não é necessário para chamar</tspan><tspan x="1180" dy="26.25">uma API protegida por JWT.</tspan></text>
+  <rect x="160" y="730" width="1280" height="78" rx="0" fill="#0b0f19" stroke="#2563eb" stroke-width="2" opacity="1" />
+  <text x="195" y="770" fill="#38bdf8" font-family="'Courier New', monospace" font-size="19" font-weight="500" text-anchor="start"><tspan x="195" dy="0">NESTA ARQUITETURA:</tspan></text>
+  <text x="455" y="771" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="500" text-anchor="start"><tspan x="455" dy="0">User Pool + App Client público. Identity Pool fica fora do primeiro passo.</tspan></text>
+</svg>
