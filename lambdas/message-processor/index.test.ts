@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { receivedMessagePayload } from '../messages.js'
+import { assistantMessagePayload } from '../messages.js'
 import { managementEndpoint, parseChatRequest } from '../websocket.js'
 
 test('builds the execute-api management endpoint with the stage', () => {
@@ -30,8 +30,8 @@ test('rejects messages without content', () => {
   assert.throws(() => parseChatRequest('{"action":"sendMessage"}'), /message é obrigatório/)
 })
 
-test('creates an acknowledgement containing the persisted text', () => {
-  const payload = receivedMessagePayload({
+test('creates an assistant payload while preserving the persisted message', () => {
+  const payload = assistantMessagePayload({
     conversationId: 'conversation-1',
     messageKey: '2026-10-08T15:00:00.000Z#message-1',
     messageId: 'message-1',
@@ -43,11 +43,15 @@ test('creates an acknowledgement containing the persisted text', () => {
     connectionId: 'connection-1',
     domainName: 'example.com',
     stage: 'dev',
-  }, 'Sua mensagem foi recebida e o código será alterado depois.')
+  }, 'Encontrei duas opções para você.', {
+    modelId: 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
+    durationMs: 850,
+    inputTokens: 120,
+    outputTokens: 35,
+    tools: ['search_inventory'],
+  })
 
-  assert.equal(
-    payload.content,
-    'Sua mensagem foi recebida e o código será alterado depois. Texto salvo: "Quero encontrar um SUV"',
-  )
+  assert.equal(payload.content, 'Encontrei duas opções para você.')
   assert.equal(payload.savedMessage.content, 'Quero encontrar um SUV')
+  assert.deepEqual(payload.metadata.tools, ['search_inventory'])
 })

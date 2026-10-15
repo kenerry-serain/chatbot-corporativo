@@ -17,11 +17,10 @@ import {
   RefreshCw,
   Send,
   ShieldCheck,
-  Sparkles,
   UserRound,
   X,
 } from 'lucide-react'
-import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from 'react'
+import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from 'react'
 import { appConfig } from './config'
 import {
   completePasswordReset,
@@ -36,14 +35,6 @@ import {
 } from './services/auth'
 import { useChatSocket, type ConnectionState } from './hooks/useChatSocket'
 import type { ChatMessage } from './types'
-
-const INITIAL_MESSAGE: ChatMessage = {
-  id: 'welcome',
-  role: 'assistant',
-  content:
-    'Olá! Sou o assistente virtual da nossa loja. Posso ajudar com modelos, condições de financiamento, avaliação do seu veículo ou pós-venda. Por onde começamos?',
-  createdAt: new Date(),
-}
 
 const SUGGESTIONS = [
   'Quero encontrar um veículo',
@@ -220,14 +211,6 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
     }
   }
 
-  async function handleDemoLogin() {
-    setError('')
-    setIsSubmitting(true)
-    await new Promise((resolve) => window.setTimeout(resolve, 350))
-    onAuthenticated({ id: 'demo-user', email: 'visitante@demo.local', name: 'Visitante' })
-    setIsSubmitting(false)
-  }
-
   return (
     <main className="login-shell">
       <section className="login-panel">
@@ -264,14 +247,6 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
                   {isSubmitting ? <LoaderCircle className="spin" size={20} /> : <>Entrar <ArrowRight size={19} /></>}
                 </button>
               </form>
-              {appConfig.demoEnabled && (
-                <>
-                  <div className="divider"><span />ou<span /></div>
-                  <button className="secondary-button" type="button" onClick={handleDemoLogin} disabled={isSubmitting}>
-                    <Sparkles size={18} /> Acessar demonstração
-                  </button>
-                </>
-              )}
               <p className="auth-switch">Ainda não tem uma conta? <button type="button" onClick={() => changeMode('signup')}>Criar conta</button></p>
               <div className="secure-note"><LockKeyhole size={15} /> Seus dados estão protegidos</div>
             </>
@@ -385,33 +360,27 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: AppUser) => 
 function connectionLabel(state: ConnectionState) {
   if (state === 'connected') return 'Conectado'
   if (state === 'connecting') return 'Conectando…'
-  if (state === 'demo') return 'Modo demonstração'
+  if (state === 'demo') return 'WebSocket não configurado'
   return 'Reconectando…'
 }
 
-function mockReply(message: string) {
-  const normalized = message.toLocaleLowerCase('pt-BR')
-  if (normalized.includes('financ')) return 'Posso ajudar com a simulação. Para começar, qual faixa de valor do veículo e quanto você pretende dar de entrada?'
-  if (normalized.includes('usado') || normalized.includes('avali')) return 'Claro! Para uma estimativa inicial, me diga o modelo, o ano e a quilometragem aproximada do seu veículo.'
-  if (normalized.includes('suv')) return 'Ótima escolha. Você prefere um SUV compacto para uso urbano ou um modelo maior, com mais espaço para a família?'
-  return 'Entendi. Para indicar as melhores opções, você pode me contar um pouco mais sobre o que procura no seu próximo veículo?'
-}
-
 function ChatScreen({ user, onLogout }: { user: AppUser; onLogout: () => Promise<void> }) {
-  const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [draft, setDraft] = useState('')
+  const [sendError, setSendError] = useState('')
   const [isAssistantTyping, setIsAssistantTyping] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const [isLoggingOut, setIsLoggingOut] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const conversationId = useMemo(() => crypto.randomUUID(), [])
+  const [conversationId, setConversationId] = useState(() => crypto.randomUUID())
 
   const { state: connectionState, send: sendToSocket, reconnect } = useChatSocket({
     conversationId,
-    enabled: user.id !== 'demo-user',
+    enabled: true,
     onMessage: (content) => {
       setIsAssistantTyping(false)
+      setSendError('')
       setMessages((current) => [...current, { id: crypto.randomUUID(), role: 'assistant', content, createdAt: new Date() }])
     },
   })
@@ -421,24 +390,33 @@ function ChatScreen({ user, onLogout }: { user: AppUser; onLogout: () => Promise
   }, [messages, isAssistantTyping])
 
   function newConversation() {
-    setMessages([{ ...INITIAL_MESSAGE, id: crypto.randomUUID(), createdAt: new Date() }])
+    setMessages([])
     setDraft('')
+    setSendError('')
+    setIsAssistantTyping(false)
+    setConversationId(crypto.randomUUID())
     setSidebarOpen(false)
   }
 
   function submitMessage(content: string) {
     const cleanContent = content.trim()
-    if (!cleanContent || isAssistantTyping) return
+    if (!cleanContent || isAssistantTyping) return false
+    if (connectionState !== 'connected') {
+      setSendError('A conexão ainda não está pronta. Reconecte antes de enviar a mensagem.')
+      reconnect()
+      return false
+    }
+    const sent = sendToSocket(cleanContent)
+    if (!sent) {
+      setSendError('A mensagem não foi enviada porque o WebSocket desconectou. Tente novamente após a reconexão.')
+      reconnect()
+      return false
+    }
     setMessages((current) => [...current, { id: crypto.randomUUID(), role: 'user', content: cleanContent, createdAt: new Date() }])
     setDraft('')
-    const sent = sendToSocket(cleanContent)
+    setSendError('')
     setIsAssistantTyping(true)
-    if (!sent) {
-      window.setTimeout(() => {
-        setMessages((current) => [...current, { id: crypto.randomUUID(), role: 'assistant', content: mockReply(cleanContent), createdAt: new Date() }])
-        setIsAssistantTyping(false)
-      }, 850)
-    }
+    return true
   }
 
   useEffect(() => {
@@ -463,13 +441,13 @@ function ChatScreen({ user, onLogout }: { user: AppUser; onLogout: () => Promise
         if (typeof message !== 'string' || !message.trim()) throw new Error('A mensagem é obrigatória.')
         if (message.length > 4000) throw new Error('A mensagem deve ter no máximo 4.000 caracteres.')
         if (isAssistantTyping) throw new Error('Aguarde a resposta atual antes de enviar outra mensagem.')
-        submitMessage(message)
+        if (!submitMessage(message)) throw new Error('O WebSocket não está conectado.')
         return { status: 'sent', conversationId }
       },
     }, { signal: lifecycle.signal })).catch(() => undefined)
 
     return () => lifecycle.abort()
-  }, [conversationId, isAssistantTyping])
+  }, [connectionState, conversationId, isAssistantTyping])
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -550,9 +528,9 @@ function ChatScreen({ user, onLogout }: { user: AppUser; onLogout: () => Promise
                 </div>
               </article>
             ))}
-            {messages.length === 1 && (
+            {messages.length === 0 && (
               <div className="suggestions" aria-label="Sugestões">
-                {SUGGESTIONS.map((suggestion) => <button type="button" key={suggestion} onClick={() => submitMessage(suggestion)}>{suggestion}<ArrowRight size={16} /></button>)}
+                {SUGGESTIONS.map((suggestion) => <button type="button" key={suggestion} disabled={connectionState !== 'connected' || isAssistantTyping} onClick={() => submitMessage(suggestion)}>{suggestion}<ArrowRight size={16} /></button>)}
               </div>
             )}
             {isAssistantTyping && (
@@ -568,8 +546,9 @@ function ChatScreen({ user, onLogout }: { user: AppUser; onLogout: () => Promise
         <div className="composer-wrap">
           <form className="composer" onSubmit={handleSubmit}>
             <textarea value={draft} onChange={(event) => setDraft(event.target.value)} onKeyDown={handleComposerKeyDown} placeholder="Digite sua mensagem…" aria-label="Mensagem" rows={1} />
-            <button type="submit" aria-label="Enviar mensagem" disabled={!draft.trim() || isAssistantTyping}><Send size={19} /></button>
+            <button type="submit" aria-label="Enviar mensagem" disabled={!draft.trim() || isAssistantTyping || connectionState !== 'connected'}><Send size={19} /></button>
           </form>
+          {sendError && <p className="composer-error" role="alert">{sendError}</p>}
           <p>O assistente pode cometer erros. Confirme informações importantes com um consultor.</p>
         </div>
       </section>

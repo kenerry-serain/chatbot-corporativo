@@ -90,8 +90,13 @@ export function useChatSocket({ conversationId, enabled, onMessage }: UseChatSoc
 
   const send = useCallback((message: string) => {
     if (socketRef.current?.readyState !== WebSocket.OPEN) return false
-    socketRef.current.send(JSON.stringify({ action: appConfig.websocket.action, conversationId, message }))
-    return true
+    try {
+      socketRef.current.send(JSON.stringify({ action: appConfig.websocket.action, conversationId, message }))
+      return true
+    } catch {
+      setState('error')
+      return false
+    }
   }, [conversationId])
 
   const reconnect = useCallback(() => {

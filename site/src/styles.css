@@ -200,6 +200,7 @@ blockquote { max-width: 580px; margin: 0; font: 700 clamp(2.35rem, 4vw, 4.5rem)/
 .composer textarea::placeholder { color: #9ca7b5; }
 .composer button { width: 42px; height: 42px; display: grid; place-items: center; flex: 0 0 auto; border: 0; border-radius: 11px; background: #1465ee; color: #fff; box-shadow: 0 7px 17px rgba(20,101,238,.24); }
 .composer-wrap > p { margin: 8px auto 0; color: #a0a9b7; font-size: .65rem; text-align: center; }
+.composer-wrap > .composer-error { color: #bd2c2c; font-size: .75rem; font-weight: 600; }
 .sidebar-scrim { display: none; }
 
 @media (max-width: 820px) {

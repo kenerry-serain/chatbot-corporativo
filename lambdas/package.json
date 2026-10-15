@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-apigatewaymanagementapi": "^3.896.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.1152.0",
     "@aws-sdk/client-dynamodb": "^3.896.0",
     "@aws-sdk/lib-dynamodb": "^3.896.0",
     "@aws-sdk/util-dynamodb": "^3.896.0",

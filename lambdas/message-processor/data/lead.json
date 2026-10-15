@@ -1,0 +1,15 @@
+{
+  "leadId": "lead-demo-001",
+  "customerId": "customer-demo-001",
+  "cognitoSub": "demo-user",
+  "name": "Marina Oliveira",
+  "email": "marina.oliveira@example.com",
+  "phone": "+55 11 90000-0000",
+  "status": "QUALIFIED",
+  "preferredVehicle": {
+    "make": "Renault",
+    "model": "Captur",
+    "preferredColors": ["azul", "preto"]
+  },
+  "notes": "Dados fictícios usados somente na demonstração local da tool de lead."
+}

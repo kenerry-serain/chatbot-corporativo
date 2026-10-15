@@ -7,7 +7,6 @@ const cognitoConfigured = Boolean(userPoolId && userPoolClientId)
 
 export const appConfig = {
   name: import.meta.env.VITE_APP_NAME?.trim() || 'AutoAtende',
-  demoEnabled: import.meta.env.VITE_ENABLE_DEMO_MODE !== 'false',
   cognito: {
     isConfigured: cognitoConfigured,
     region: import.meta.env.VITE_AWS_REGION?.trim() || 'us-east-1',

@@ -1,0 +1,42 @@
+[
+  {
+    "vehicleId": "vehicle-demo-001",
+    "make": "Renault",
+    "model": "Captur",
+    "year": 2026,
+    "color": "Azul Iron",
+    "priceBrl": 142990,
+    "status": "AVAILABLE",
+    "quantity": 1
+  },
+  {
+    "vehicleId": "vehicle-demo-002",
+    "make": "Renault",
+    "model": "Captur",
+    "year": 2026,
+    "color": "Preto Nacarado",
+    "priceBrl": 145490,
+    "status": "AVAILABLE",
+    "quantity": 2
+  },
+  {
+    "vehicleId": "vehicle-demo-003",
+    "make": "Volkswagen",
+    "model": "T-Cross",
+    "year": 2025,
+    "color": "Branco Puro",
+    "priceBrl": 138900,
+    "status": "RESERVED",
+    "quantity": 1
+  },
+  {
+    "vehicleId": "vehicle-demo-004",
+    "make": "Jeep",
+    "model": "Renegade",
+    "year": 2026,
+    "color": "Cinza Sting",
+    "priceBrl": 136990,
+    "status": "AVAILABLE",
+    "quantity": 1
+  }
+]

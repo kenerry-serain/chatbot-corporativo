@@ -6,9 +6,9 @@ export interface StoredMessage {
   conversationId: string
   messageKey: string
   messageId: string
-  role: 'user'
+  role: 'user' | 'assistant'
   content: string
-  status: 'RECEIVED'
+  status: 'RECEIVED' | 'PROCESSED'
   createdAt: string
   createdAtEpoch: number
   connectionId: string
@@ -16,6 +16,8 @@ export interface StoredMessage {
   stage: string
   requestId?: string
   userId?: string
+  inReplyToMessageId?: string
+  modelId?: string
 }
 
 interface CreateMessageInput {
@@ -72,16 +74,63 @@ export function createMessageItem({
 export function parseStoredMessage(value: Record<string, unknown>): StoredMessage | null {
   const required = ['conversationId', 'messageKey', 'messageId', 'content', 'createdAt', 'connectionId', 'domainName', 'stage'] as const
   if (required.some((key) => typeof value[key] !== 'string' || !value[key])) return null
+  if (value.role !== 'user' && value.role !== 'assistant') return null
 
   return value as unknown as StoredMessage
 }
 
-export function receivedMessagePayload(message: StoredMessage, acknowledgement: string) {
+interface CreateAssistantMessageInput {
+  userMessage: StoredMessage
+  content: string
+  modelId: string
+  now?: Date
+  messageId?: string
+}
+
+export function createAssistantMessageItem({
+  userMessage,
+  content,
+  modelId,
+  now = new Date(),
+  messageId = randomUUID(),
+}: CreateAssistantMessageInput): StoredMessage {
+  const createdAt = now.toISOString()
+  return {
+    conversationId: userMessage.conversationId,
+    messageKey: `${createdAt}#${messageId}`,
+    messageId,
+    role: 'assistant',
+    content,
+    status: 'PROCESSED',
+    createdAt,
+    createdAtEpoch: Math.floor(now.getTime() / 1_000),
+    connectionId: userMessage.connectionId,
+    domainName: userMessage.domainName,
+    stage: userMessage.stage,
+    requestId: userMessage.requestId,
+    userId: userMessage.userId,
+    inReplyToMessageId: userMessage.messageId,
+    modelId,
+  }
+}
+
+interface AssistantMetadata {
+  modelId: string
+  durationMs: number
+  inputTokens: number
+  outputTokens: number
+  cacheReadInputTokens?: number
+  cacheWriteInputTokens?: number
+  tools: string[]
+}
+
+export function assistantMessagePayload(message: StoredMessage, content: string, metadata: AssistantMetadata) {
   return {
     type: 'assistant.message',
-    content: `${acknowledgement} Texto salvo: "${message.content}"`,
+    content,
     conversationId: message.conversationId,
     requestId: message.requestId || message.messageId,
+    metadata,
     savedMessage: {
       messageId: message.messageId,
       conversationId: message.conversationId,
